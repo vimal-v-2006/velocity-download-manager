@@ -145,6 +145,16 @@ large.iso
 
 Those parts download in parallel and aria2 writes them into the final file. This can be much faster than one browser connection when the server and network allow it.
 
+## Host compatibility profiles
+
+Some hosts do not allow aggressive multi-connection TLS/range behavior. Velocity keeps Fastest Mode for normal direct links, but applies safer profiles for known strict hosts.
+
+Current compatibility profile:
+
+- **Pixeldrain**: uses a compatibility/fallback path because Pixeldrain can reject aria2 16-split TLS/range behavior. If any strict host fails with 16 splits, set the slider to **1 split** and retry.
+
+This means Pixeldrain downloads should work reliably, but may not be as fast as hosts that allow 16 parallel segments.
+
 ## Important notes
 
 - Some websites block segmented downloads. Reduce split count if a server rejects requests.

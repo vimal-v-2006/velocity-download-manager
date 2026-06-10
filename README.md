@@ -17,19 +17,20 @@ Normal browser downloads are often single-stream and fragile. Velocity gives you
 
 ## Current version
 
-`v0.1.2` is a working MVP:
+`v0.2.0` is a working monochrome/fluid UI MVP:
 
-- Animated React desktop UI
+- Monochrome black/white animated React desktop UI
 - Electron desktop shell
 - aria2 RPC engine auto-started by the app
 - Add URL download
 - Choose save folder
 - Pause / resume / remove
-- Live speed, progress, ETA and connection count
+- Live speed sculpture, progress, ETA and connection count
 - Completed/stopped list
 - Tests for core display logic
 - Linux AppImage/deb build scripts
 - Fastest Mode benchmark script
+- Pointer/trackpad-reactive fluid panels and particle field
 
 ## Tech stack
 
@@ -65,14 +66,14 @@ From the GitHub Releases page, download either:
 ### 3A. Run AppImage
 
 ```bash
-chmod +x "Velocity Download Manager-0.1.2.AppImage"
-./"Velocity Download Manager-0.1.2.AppImage"
+chmod +x "Velocity Download Manager-0.2.0.AppImage"
+./"Velocity Download Manager-0.2.0.AppImage"
 ```
 
 ### 3B. Install deb
 
 ```bash
-sudo apt install ./velocity-download-manager_0.1.2_amd64.deb
+sudo apt install ./velocity-download-manager_0.2.0_amd64.deb
 ```
 
 Then open **Velocity Download Manager** from your app launcher.

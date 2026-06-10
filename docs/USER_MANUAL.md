@@ -1,5 +1,9 @@
 # Velocity User Manual
 
+## Interface style
+
+Velocity v0.2 uses a monochrome black/white interface with pointer-reactive cards, particles, a live speed sculpture, and fluid motion. Hover or move your trackpad over panels to see the UI react.
+
 ## Add a download
 
 1. Copy a download URL.

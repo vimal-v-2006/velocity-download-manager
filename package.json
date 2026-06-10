@@ -1,6 +1,6 @@
 {
   "name": "velocity-download-manager",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A beautiful animated Linux-first download manager powered by aria2 segmented Fastest Mode.",
   "author": "Vimal V <vimal-v-2006>",
   "license": "MIT",

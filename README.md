@@ -17,7 +17,7 @@ Normal browser downloads are often single-stream and fragile. Velocity gives you
 
 ## Current version
 
-`v0.1.0` is a working MVP:
+`v0.1.2` is a working MVP:
 
 - Animated React desktop UI
 - Electron desktop shell
@@ -65,14 +65,14 @@ From the GitHub Releases page, download either:
 ### 3A. Run AppImage
 
 ```bash
-chmod +x "Velocity Download Manager-0.1.0.AppImage"
-./"Velocity Download Manager-0.1.0.AppImage"
+chmod +x "Velocity Download Manager-0.1.2.AppImage"
+./"Velocity Download Manager-0.1.2.AppImage"
 ```
 
 ### 3B. Install deb
 
 ```bash
-sudo apt install ./velocity-download-manager_0.1.0_amd64.deb
+sudo apt install ./velocity-download-manager_0.1.2_amd64.deb
 ```
 
 Then open **Velocity Download Manager** from your app launcher.
@@ -145,19 +145,9 @@ large.iso
 
 Those parts download in parallel and aria2 writes them into the final file. This can be much faster than one browser connection when the server and network allow it.
 
-## Host compatibility profiles
-
-Some hosts do not allow aggressive multi-connection TLS/range behavior. Velocity keeps Fastest Mode for normal direct links, but applies safer profiles for known strict hosts.
-
-Current compatibility profile:
-
-- **Pixeldrain**: uses a compatibility/fallback path because Pixeldrain can reject aria2 16-split TLS/range behavior. If any strict host fails with 16 splits, set the slider to **1 split** and retry.
-
-This means Pixeldrain downloads should work reliably, but may not be as fast as hosts that allow 16 parallel segments.
-
 ## Important notes
 
-- Some websites block segmented downloads. Reduce split count if a server rejects requests.
+- Some websites block segmented downloads. If a link fails, shows TLS/connection errors, or stays at 0 B, retry with the slider set to **1 split**.
 - Some links require browser cookies or special headers. Browser extension support is planned.
 - aria2 must be installed and available as `aria2c`.
 - Fastest real speed still depends on your network, server limits and disk speed.

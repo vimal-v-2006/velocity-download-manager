@@ -28,15 +28,11 @@ When aria2 reports a file path, use **Open** to ask the operating system to open
 - Keep downloads on an SSD if possible.
 - Do not expect segmented downloading to bypass server-side speed limits.
 
-## Pixeldrain and strict hosts
+## Strict hosts / failed downloads
 
-Pixeldrain may fail in raw aria2 Fastest Mode with:
+Some hosts block aggressive multi-connection downloads. If a download fails, stays at `0 B / 0 B`, or shows a TLS/connection error, set the split slider to **1 split** and retry.
 
-```text
-SSL/TLS handshake failure: Error in the pull function
-```
-
-Velocity detects Pixeldrain links and uses a compatibility/fallback profile automatically. If a strict host fails when you use 16 splits, reduce the slider to **1 split** and retry. Some hosts deliberately reject aggressive multi-connection downloads.
+Example: Pixeldrain may reject 16-split aria2 downloads. Use 1 split for that kind of host.
 
 ## Troubleshooting
 

@@ -46,7 +46,7 @@ function AddPanel({ onAdded }: { onAdded: () => void }) {
   async function add() { setBusy(true); setMessage(''); try { new URL(url); await window.velocity?.addDownload({ url, dir: dir || undefined, split, connections: split }); setUrl(''); setMessage('Download added to Velocity queue.'); onAdded(); } catch (e) { setMessage(e instanceof Error ? e.message : 'Invalid URL or aria2 error'); } finally { setBusy(false); } }
   async function choose() { const chosen = await window.velocity?.chooseDir(); if (chosen) setDir(chosen); }
   return <motion.section initial={{ opacity:0, y:-12 }} animate={{ opacity:1, y:0 }} className="add-panel">
-    <div><h2><Plus size={24}/> Add high-speed download</h2><p>Fastest Mode uses segmented range requests: split file parts, parallel connections, resume and retry.</p></div>
+    <div><h2><Plus size={24}/> Add high-speed download</h2><p>Fastest Mode uses segmented range requests. If a link fails or shows TLS/connection errors, retry with <strong>1 split</strong>; some hosts block 16-split downloads.</p></div>
     <div className="add-grid"><input value={url} onChange={e=>setUrl(e.target.value)} placeholder="Paste HTTP/HTTPS, magnet, torrent or metalink URL" onKeyDown={e=>{ if(e.key==='Enter') add(); }} /><button onClick={choose}><FolderOpen size={17}/> {dir ? 'Folder selected' : 'Save folder'}</button><label className="range">Splits <strong>{split}</strong><input type="range" min="1" max="16" value={split} onChange={e=>setSplit(Number(e.target.value))}/></label><button className="primary" disabled={busy || !url} onClick={add}><Rocket size={18}/> Start</button></div>
     {dir && <p className="hint">Folder: {dir}</p>}{message && <p className="hint">{message}</p>}
   </motion.section>;

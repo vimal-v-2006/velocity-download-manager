@@ -1,0 +1,6 @@
+export type DownloadStatus = 'active' | 'waiting' | 'paused' | 'complete' | 'error' | 'removed';
+export type AriaFile = { path: string; length: string; completedLength: string; uris?: { uri: string; status: string }[] };
+export type DownloadItem = { gid: string; status: DownloadStatus; totalLength: string; completedLength: string; downloadSpeed: string; uploadSpeed?: string; connections: string; numSeeders?: string; files: AriaFile[]; errorMessage?: string; dir?: string; bittorrent?: { info?: { name?: string } } };
+export type AriaSnapshot = { active: DownloadItem[]; waiting: DownloadItem[]; stopped: DownloadItem[]; globalStat: { downloadSpeed: string; numActive: string; numWaiting: string; numStopped: string }; version: { version: string; enabledFeatures: string[] } };
+export type AddDownloadPayload = { url: string; dir?: string; split?: number; connections?: number };
+declare global { interface Window { velocity?: { addDownload(payload: AddDownloadPayload): Promise<string>; pause(gid: string): Promise<unknown>; resume(gid: string): Promise<unknown>; remove(gid: string): Promise<unknown>; status(): Promise<AriaSnapshot>; chooseDir(): Promise<string | null>; openPath(path: string): Promise<string>; } } }

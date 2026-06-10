@@ -1,0 +1,75 @@
+{
+  "name": "velocity-download-manager",
+  "version": "0.1.0",
+  "description": "A beautiful animated Linux-first download manager powered by aria2 segmented Fastest Mode.",
+  "author": "Vimal V <vimal-v-2006>",
+  "license": "MIT",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"vite --host 127.0.0.1\" \"wait-on http://127.0.0.1:5173 && electron .\"",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "lint": "eslint . --max-warnings=0",
+    "start": "electron .",
+    "dist:linux": "npm run build && electron-builder --linux AppImage deb --publish never",
+    "dist:dir": "npm run build && electron-builder --dir --publish never"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "electron-is-dev": "latest",
+    "framer-motion": "latest",
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@eslint/js": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "concurrently": "latest",
+    "electron": "latest",
+    "electron-builder": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react-hooks": "latest",
+    "eslint-plugin-react-refresh": "latest",
+    "globals": "^17.6.0",
+    "jsdom": "latest",
+    "typescript-eslint": "^8.61.0",
+    "vitest": "latest",
+    "wait-on": "latest"
+  },
+  "build": {
+    "appId": "com.vimal.velocitydm",
+    "productName": "Velocity Download Manager",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Network",
+      "maintainer": "Vimal V",
+      "synopsis": "Linux-first high-speed segmented download manager",
+      "description": "Velocity is a beautiful animated Linux-first download manager powered by aria2 segmented downloads, resume, queue control, and Fastest Mode."
+    }
+  },
+  "homepage": "https://github.com/vimal-v-2006/velocity-download-manager",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vimal-v-2006/velocity-download-manager.git"
+  }
+}
